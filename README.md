@@ -269,6 +269,8 @@ A modern recipe discovery and meal-planning Android application built with **Kot
 
 ### Login Screen
 
+<img src="docs/images/SMP_LoginPage.jpg" width="250">
+
 ![Login Screen](docs/images/SMP_LoginPage.jpg)
 
 ### Home Screen
