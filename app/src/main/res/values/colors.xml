@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+
+    <color name="primary">#0D0D0D</color>
+
+
+    <color name="gray">#9E9E9E</color>
+    <color name="gray_light">#BDBDBD</color>
+    <color name="chip_bg">#F2F2F2</color>
+
+
+    <color name="backgroundColor">#FAFAFA</color>
+    <color name="primaryColor">#FF5722</color>
+    <color name="nav_item_color">#757575</color>
+    <color name="nav_item_color_selected">#FF5722</color>
+    <color name="searchBarBackground">#F0F0F0</color>
+    <color name="tagBackground">#80000000</color>
+
+    <color name="gradient_start">#FFC107</color>
+    <color name="gradient_center">#FDE49A</color>
+    <color name="gradient_end">#FEFEFE</color>
+
+    <color name="button_bg">#F6B102</color>
+
+    <color name="header_bg">#EAF7E4</color>
+    <color name="screen_bg">#FFFFFF</color>
+    <color name="primary_dark_green">#0F4D1F</color>
+    <color name="category_dark">#354B3E</color>
+    <color name="text_primary">#111111</color>
+    <color name="text_secondary">#7A7A7A</color>
+    <color name="text_hint">#9E9E9E</color>
+    <color name="text_greeting">#5A5A5A</color>
+    <color name="chip_border">#E5E5E5</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="nav_unselected">#9A9A9A</color>
+    <color name="nav_item_selector">#104612</color>
+
+    <!--    Notes-->
+    <!--    Header background: #EAF7E4-->
+    <!--    Primary dark green: #0F4D1F-->
+    <!--    Text dark: #111111-->
+    <!--    Secondary text: #7A7A7A-->
+    <!--    Border gray: #E5E5E5-->
+    <!--    Overlay for time badge: #66000000-->
+</resources>

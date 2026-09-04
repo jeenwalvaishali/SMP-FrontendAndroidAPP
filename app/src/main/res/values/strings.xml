@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">SmartMealPlanner</string>
+    <string name="recipe_title">Choco Macarons</string>
+    <string name="rating_desc">Rating</string>
+    <string name="rating_value">4.7</string>
+    <string name="prep_time">⏱ 10 min</string>
+    <string name="difficulty">📊 Medium</string>
+    <string name="recipe_image_desc">Recipe image</string>
+    <string name="indicator_text">1–8</string>
+    <string name="description_label">Description</string>
+    <string name="description_text">Choco Macarons are a delightful blend... Show more</string>
+    <string name="ingredients_label">Ingredients</string>
+    <string name="expand_ingredients_desc">Expand ingredients</string>
+    <string name="ingredients_content">• 2 cups almond flour\n• 1 cup powdered sugar\n• 2 tbsp cocoa powder\n• 3 egg whites</string>
+    <string name="directions_label">Directions</string>
+    <string name="expand_directions_desc">Expand directions</string>
+    <string name="directions_content">To make Choco Macarons, start by sifting together almond flour, powdered sugar, and cocoa powder to ensure a smooth batter...</string>
+    <string name="read_more">Read more</string>
+    <string name="watch_video">Watch Video</string>
+    <string name="add_to_fav">Add to Favourites</string>
+    <string name="show_less">Show less</string>
+</resources>
