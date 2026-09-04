@@ -277,4 +277,26 @@ A modern recipe discovery and meal-planning Android application built with **Kot
 
 ### Category Home
 
-![Recipe Details](docs/images/SMP_CategoryHome.jpg)
+![Category Home](docs/images/SMP_CategoryHome.jpg)
+
+### Favorite Page
+
+![Favorite Page](docs/images/SMP_FavoritePage.jpg)
+
+### Recipe Details Page
+
+![Recipe Details](docs/images/SMP_RecipeDetailsPage.jpg)
+
+### Search Result
+
+![Search Result](docs/images/SMP_SearchResultPage.jpg)
+
+### Settings Page
+
+![Settings Page](docs/images/SMP_SettingPage.jpg)
+
+### Menu Option
+
+![Menu Option](docs/images/SMP_MenuOptions.jpg)
+
+---
