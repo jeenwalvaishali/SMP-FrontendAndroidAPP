@@ -262,3 +262,19 @@ Authenticated API Requests
 ---
 
 A modern recipe discovery and meal-planning Android application built with **Kotlin, MVVM, and Jetpack libraries**.
+
+---
+
+## 📱 Screenshots
+
+### Login Screen
+
+![Login Screen](docs/images/SMP_LoginPage.jpg)
+
+### Home Screen
+
+![Home Screen](docs/images/SMP_HomePage.jpg)
+
+### Category Home
+
+![Recipe Details](docs/images/SMP_CategoryHome.jpg)
