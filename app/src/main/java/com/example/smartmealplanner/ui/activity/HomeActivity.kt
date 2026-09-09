@@ -37,6 +37,7 @@ class HomeActivity : AppCompatActivity(), OnItemClickListener {
     private lateinit var seeAll: TextView
     private lateinit var searchInput: EditText
     private lateinit var searchIcon: ImageView
+    private lateinit var createMealPlanCard: MaterialCardView
 
     private val viewModel: HomeViewModel by viewModels {
         val tokenManager = TokenManager(this)
@@ -67,9 +68,14 @@ class HomeActivity : AppCompatActivity(), OnItemClickListener {
         seeAll = findViewById(R.id.seeAll)
         searchInput = findViewById(R.id.searchInput)
         searchIcon = findViewById(R.id.searchIcon)
+        createMealPlanCard = findViewById(R.id.createMealPlanCard)
 
         menuCard.setOnClickListener {
             showPopupMenu()
+        }
+
+        createMealPlanCard.setOnClickListener {
+            startActivity(Intent(this, MealPreferencesActivity::class.java))
         }
 
         searchInput.setOnEditorActionListener { _, actionId, _ ->

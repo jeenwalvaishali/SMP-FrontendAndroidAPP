@@ -8,12 +8,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
-    // SECURITY: BASE_URL is read from local.properties via BuildConfig
     private val BASE_URL: String = BuildConfig.BASE_URL
 
     private val logging = HttpLoggingInterceptor().apply {
         level = if (BuildConfig.DEBUG) {
-            HttpLoggingInterceptor.Level.BASIC
+            HttpLoggingInterceptor.Level.BODY // Changed from BASIC to BODY for better debugging
         } else {
             HttpLoggingInterceptor.Level.NONE
         }

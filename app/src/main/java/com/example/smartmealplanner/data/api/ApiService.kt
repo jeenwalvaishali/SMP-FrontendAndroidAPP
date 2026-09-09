@@ -4,8 +4,11 @@ import com.example.smartmealplanner.data.model.CategoryResponse
 import com.example.smartmealplanner.data.model.RecipeResponse
 import com.example.smartmealplanner.data.model.SearchResponse
 import com.example.smartmealplanner.data.model.SingleRecipeResponse
+import com.example.smartmealplanner.data.model.MealPreferences
+import com.example.smartmealplanner.data.model.WeeklyMealPlan
 import okhttp3.ResponseBody
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -39,4 +42,7 @@ interface ApiService {
 
     @DELETE("recipes/favorites/{id}")
     suspend fun removeFromFavorites(@Path("id") id: String): Response<ResponseBody>
+
+    @POST("meal-plan/generate")
+    suspend fun generateMealPlan(@Body preferences: MealPreferences): WeeklyMealPlan
 }

@@ -59,6 +59,18 @@
             android:label="Profile"
             android:theme="@style/Theme.SmartMealPlanner"/>
 
+        <activity
+            android:name=".ui.activity.MealPreferencesActivity"
+            android:exported="false"
+            android:label="Meal Preferences"
+            android:theme="@style/Theme.SmartMealPlanner"/>
+
+        <activity
+            android:name=".ui.activity.WeeklyMealPlanActivity"
+            android:exported="false"
+            android:label="Weekly Meal Plan"
+            android:theme="@style/Theme.SmartMealPlanner"/>
+
     </application>
 
 </manifest>
