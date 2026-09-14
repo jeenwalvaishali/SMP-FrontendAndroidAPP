@@ -27,6 +27,8 @@ class TokenManager(context: Context) {
 
     companion object {
         private const val TOKEN_KEY = "jwt_token"
+        private const val USER_NAME_KEY = "user_name"
+        private const val USER_EMAIL_KEY = "user_email"
     }
 
     fun saveToken(token: String) {
@@ -36,9 +38,21 @@ class TokenManager(context: Context) {
         _tokenFlow.value = token
     }
 
+    fun saveUserDetails(name: String, email: String) {
+        sharedPrefs.edit {
+            putString(USER_NAME_KEY, name)
+            putString(USER_EMAIL_KEY, email)
+        }
+    }
+
+    fun getUserName(): String? = sharedPrefs.getString(USER_NAME_KEY, null)
+    fun getUserEmail(): String? = sharedPrefs.getString(USER_EMAIL_KEY, null)
+
     fun clearToken() {
         sharedPrefs.edit {
             remove(TOKEN_KEY)
+            remove(USER_NAME_KEY)
+            remove(USER_EMAIL_KEY)
         }
         _tokenFlow.value = null
     }

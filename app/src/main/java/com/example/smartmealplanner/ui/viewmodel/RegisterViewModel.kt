@@ -21,6 +21,7 @@ class RegisterViewModel(
 
             result.onSuccess {
                 tokenManager.saveToken(it.token)
+                tokenManager.saveUserDetails(it.user.name, it.user.email)
             }
 
             registerState.postValue(result)

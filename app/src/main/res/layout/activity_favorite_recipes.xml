@@ -41,15 +41,27 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
-            android:id="@+id/llSectionsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp"
-            android:paddingTop="20dp"
-            android:paddingBottom="24dp">
+            android:orientation="vertical">
 
-            <!-- Dynamic sections will be added here -->
+            <LinearLayout
+                android:id="@+id/llSectionsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="20dp">
+
+                <!-- Dynamic sections will be added here -->
+
+            </LinearLayout>
+
+            <include
+                android:id="@+id/layoutWeeklyPlan"
+                layout="@layout/item_fav_save_meal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

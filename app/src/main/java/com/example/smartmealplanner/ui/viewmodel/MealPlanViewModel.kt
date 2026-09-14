@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.smartmealplanner.data.model.MealPlanRequest
 import com.example.smartmealplanner.data.model.MealPlanResponse
+import com.example.smartmealplanner.data.model.SavedMealPlan
 import com.example.smartmealplanner.data.repository.MealPlanRepository
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +18,8 @@ import kotlinx.coroutines.launch
 sealed class MealPlanState {
     object Loading : MealPlanState()
     data class Success(val mealPlan: MealPlanResponse) : MealPlanState()
-    data class Error(val message: String) : MealPlanState()
+    data class SavedPlanSuccess(val savedPlan: SavedMealPlan) : MealPlanState()
+    data class Error(val message: String, val code: Int? = null) : MealPlanState()
 }
 
 class MealPlanViewModel(private val repository: MealPlanRepository) : ViewModel() {
@@ -40,11 +42,28 @@ class MealPlanViewModel(private val repository: MealPlanRepository) : ViewModel(
                     _navigationEvent.emit(mealPlan)
                 } else {
                     val errorBody = response.errorBody()?.string()
-                    Log.e("MealPlanVM", "Error 422/Other: $errorBody")
-                    _uiState.value = MealPlanState.Error(errorBody ?: "Failed to generate meal plan")
+                    Log.e("MealPlanVM", "Error: $errorBody")
+                    _uiState.value = MealPlanState.Error(errorBody ?: "Failed to generate meal plan", response.code())
                 }
             } catch (e: Exception) {
                 Log.e("MealPlanVM", "Exception: ${e.message}", e)
+                _uiState.value = MealPlanState.Error(e.message ?: "An unexpected error occurred")
+            }
+        }
+    }
+
+    fun getSavedMealPlan() {
+        viewModelScope.launch {
+            _uiState.value = MealPlanState.Loading
+            try {
+                val response = repository.getSavedMealPlan()
+                if (response.isSuccessful && response.body() != null) {
+                    _uiState.value = MealPlanState.SavedPlanSuccess(response.body()!!)
+                } else {
+                    val errorBody = response.errorBody()?.string()
+                    _uiState.value = MealPlanState.Error(errorBody ?: "Failed to fetch saved meal plan", response.code())
+                }
+            } catch (e: Exception) {
                 _uiState.value = MealPlanState.Error(e.message ?: "An unexpected error occurred")
             }
         }

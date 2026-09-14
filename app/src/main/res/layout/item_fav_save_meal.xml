@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="92dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/itemContent"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="0dp"
+        android:paddingEnd="10dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground">
+
+        <!-- Category name -->
+        <TextView
+            android:id="@+id/tvMeal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Weekly Meal"
+            android:layout_marginStart="16dp"
+            android:textColor="@color/nav_item_color_selected"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:fontFamily="sans"
+            android:includeFontPadding="false" />
+
+        <!-- Push arrow to the right -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Down arrow -->
+        <ImageView
+            android:id="@+id/ivExpand"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="Expand"
+            android:src="@drawable/ic_arrow_right"
+            app:tint="@color/nav_item_color_selected"
+            android:padding="4dp" />
+
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#E8E8E8" />
+
+</LinearLayout>

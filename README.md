@@ -10,8 +10,9 @@ SmartMealPlanner is a modern Android application designed to help users discover
 * **Dynamic Categorization:** Filter recipes by categories such as Asian, Indian, Mediterranean, etc. using an interactive horizontal selector.
 * **Powerful Search:** Real-time search functionality integrated with the IME (keyboard) search action.
 * **Favorites Management:** Save preferred recipes to a dedicated favorites list for offline-style access.
+* **Personalized Weekly Meal Planning:** Generate and view custom weekly meal plans customized by diet type, daily calorie target, meals per day, cuisine preferences, and maximum cooking time.
 * **User Profiles:** Manage personal settings and secure session handling.
-* **Secure Authentication:** Token-based authentication using DataStore Preferences.
+* **Secure Authentication:** Token-based authentication using DataStore Preferences and OkHttp Interceptors.
 
 ---
 
@@ -62,28 +63,40 @@ com.example.smartmealplanner
 ├── adapter
 │   ├── CategoryAdapter
 │   ├── RecommendationAdapter
-│   └── RecipeWeekAdapter
+│   ├── RecipeWeekAdapter
+│   ├── AllRecipesAdapter
+│   └── MealPlanAdapter
 │
 ├── data
 │   ├── api
 │   │   ├── RetrofitClient
 │   │   ├── ApiService
-│   │   └── TokenManager
+│   │   ├── TokenManager
+│   │   └── AuthInterceptor
 │   │
 │   └── model
 │       ├── Recipe
 │       ├── User
-│       └── Response
+│       ├── Response
+│       └── MealPlanModels (MealPlanRequest, MealPlanResponse, SavedMealPlan, etc.)
 │
 ├── ui
 │   ├── activity
+│   │   ├── MainActivity
 │   │   ├── HomeActivity
 │   │   ├── RecipeActivity
-│   │   └── ...
+│   │   ├── AllRecipesActivity
+│   │   ├── FavoriteRecipesActivity
+│   │   ├── ProfileActivity
+│   │   ├── MealPreferencesActivity
+│   │   ├── SavedMealPlanActivity
+│   │   └── WeeklyMealPlanActivity
 │   │
 │   ├── viewmodel
 │   │   ├── HomeViewModel
-│   │   └── HomeViewModelFactory
+│   │   ├── HomeViewModelFactory
+│   │   ├── FavoriteViewModelFactory
+│   │   └── ...
 │   │
 │   └── common
 │       ├── Interfaces
@@ -150,10 +163,9 @@ Upon login, users can view:
 
 ---
 
-## Search
+## Search & All Recipes
 
-Use the search bar to find recipes by keyword.
-
+Use the search bar to find recipes by keyword, or browse all available recipes in a clear, scrollable layout.
 The search functionality is integrated with the IME keyboard search action.
 
 ---
@@ -166,6 +178,12 @@ Click on any recipe card to view:
 * Ingredients
 * Cooking instructions
 * Other recipe details
+
+---
+
+## Weekly Meal Planner
+
+Configure and save preferences such as diet type (e.g., Vegetarian), daily calorie goal, meals per day, cuisine, and maximum cooking time to view and track your personalized weekly meal plans.
 
 ---
 

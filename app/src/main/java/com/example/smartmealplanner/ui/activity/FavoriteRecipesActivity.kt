@@ -1,5 +1,6 @@
 package com.example.smartmealplanner.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +35,7 @@ class FavoriteRecipesActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupToolbar()
+        setupWeeklyPlanRedirection()
         observeViewModel()
         
         viewModel.fetchFavorites()
@@ -42,6 +44,18 @@ class FavoriteRecipesActivity : AppCompatActivity() {
     private fun setupToolbar() {
         binding.btnBack.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
+        }
+    }
+
+    private fun setupWeeklyPlanRedirection() {
+        // Accessing the included layout for Weekly Plan redirection via ViewBinding
+        binding.layoutWeeklyPlan.tvMeal.text = "My Weekly Plan"
+        
+        // Since itemContent in item_fav_save_meal.xml is marked as clickable, 
+        // we must set the listener on it directly to ensure navigation works.
+        binding.layoutWeeklyPlan.itemContent.setOnClickListener {
+            val intent = Intent(this, SavedMealPlanActivity::class.java)
+            startActivity(intent)
         }
     }
 

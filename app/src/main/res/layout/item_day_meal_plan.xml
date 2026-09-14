@@ -14,113 +14,43 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <TextView
-            android:id="@+id/dayTitle"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MONDAY"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/primaryColor"
-            android:layout_marginBottom="16dp"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
 
-        <!-- Breakfast -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🌅 BREAKFAST"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="#888888"/>
-        <TextView
-            android:id="@+id/breakfastTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Vegetable Poha"
-            android:textSize="16sp"
-            android:textColor="@color/text_primary"/>
-        <TextView
-            android:id="@+id/breakfastCalories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="350 Calories"
-            android:textSize="14sp"
-            android:textColor="#555555"
-            android:layout_marginBottom="12dp"/>
+            <TextView
+                android:id="@+id/dayTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="MONDAY"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primaryColor"/>
 
-        <!-- Lunch -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="☀️ LUNCH"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="#888888"/>
-        <TextView
-            android:id="@+id/lunchTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Paneer Bowl"
-            android:textSize="16sp"
-            android:textColor="@color/text_primary"/>
-        <TextView
-            android:id="@+id/lunchCalories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="700 Calories"
-            android:textSize="14sp"
-            android:textColor="#555555"
-            android:layout_marginBottom="12dp"/>
-
-        <!-- Dinner -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🌙 DINNER"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:textColor="#888888"/>
-        <TextView
-            android:id="@+id/dinnerTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dal + Rice"
-            android:textSize="16sp"
-            android:textColor="@color/text_primary"/>
-        <TextView
-            android:id="@+id/dinnerCalories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="750 Calories"
-            android:textSize="14sp"
-            android:textColor="#555555"
-            android:layout_marginBottom="16dp"/>
+            <TextView
+                android:id="@+id/totalDayCalories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1800 kcal"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#EEEEEE"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="12dp"/>
 
         <LinearLayout
+            android:id="@+id/mealsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TOTAL"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"/>
-            <TextView
-                android:id="@+id/totalDayCalories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1800 / 2000 Calories"
-                android:textStyle="bold"
-                android:textColor="@color/text_primary"/>
-        </LinearLayout>
+            android:orientation="vertical" />
 
     </LinearLayout>
 

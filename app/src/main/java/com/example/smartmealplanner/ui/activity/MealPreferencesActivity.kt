@@ -131,6 +131,10 @@ class MealPreferencesActivity : AppCompatActivity() {
                                 generateButton.isEnabled = true
                                 generateButton.text = "Generate Meal Plan"
                             }
+                            is MealPlanState.SavedPlanSuccess -> {
+                                generateButton.isEnabled = true
+                                generateButton.text = "Generate Meal Plan"
+                            }
                             is MealPlanState.Error -> {
                                 generateButton.isEnabled = true
                                 generateButton.text = "Generate Meal Plan"

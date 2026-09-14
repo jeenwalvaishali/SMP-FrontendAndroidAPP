@@ -13,9 +13,13 @@ import kotlinx.coroutines.launch
 
 class ProfileActivity : AppCompatActivity() {
 
+    private lateinit var tokenManager: TokenManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
+
+        tokenManager = TokenManager(this)
 
         setupHeader()
         setupProfileInfo()
@@ -31,9 +35,12 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun setupProfileInfo() {
-        // Here you would typically load user data from a ViewModel or TokenManager
-        findViewById<TextView>(R.id.userName).text = "Vaishali"
-        findViewById<TextView>(R.id.userEmail).text = "vaishali@example.com"
+        // Load actual user data from TokenManager
+        val userName = tokenManager.getUserName() ?: "User"
+        val userEmail = tokenManager.getUserEmail() ?: "user@example.com"
+
+        findViewById<TextView>(R.id.userName).text = userName
+        findViewById<TextView>(R.id.userEmail).text = userEmail
         
         findViewById<MaterialButton>(R.id.editProfileButton).setOnClickListener {
             // TODO: Implement Edit Profile
@@ -43,12 +50,14 @@ class ProfileActivity : AppCompatActivity() {
     private fun setupSettings() {
         // Accessing included layouts
         val dietTypeView = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.settingDietType)
-        dietTypeView.findViewById<TextView>(R.id.settingTitle).text = "Diet Type"
-        dietTypeView.findViewById<ImageView>(R.id.settingIcon).setImageResource(R.drawable.ic_menu) // Replace with better icon if available
+        dietTypeView.findViewById<TextView>(R.id.settingTitle).text = "My Weekly Plan"
+        dietTypeView.findViewById<ImageView>(R.id.settingIcon).setImageResource(R.drawable.ic_restaurant)
 
-        val allergiesView = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.settingAllergies)
-        allergiesView.findViewById<TextView>(R.id.settingTitle).text = "Allergies"
-        allergiesView.findViewById<ImageView>(R.id.settingIcon).setImageResource(R.drawable.ic_filter) // Replace with better icon if available
+        // Open SavedMealPlanActivity when "My Weekly Plan" is clicked
+        dietTypeView.setOnClickListener {
+            val intent = Intent(this, SavedMealPlanActivity::class.java)
+            startActivity(intent)
+        }
 
         val passwordView = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.settingChangePassword)
         passwordView.findViewById<TextView>(R.id.settingTitle).text = "Change Password"
@@ -56,7 +65,7 @@ class ProfileActivity : AppCompatActivity() {
 
         val notificationsView = findViewById<androidx.constraintlayout.widget.ConstraintLayout>(R.id.settingNotifications)
         notificationsView.findViewById<TextView>(R.id.settingTitle).text = "Notifications"
-        notificationsView.findViewById<ImageView>(R.id.settingIcon).setImageResource(R.drawable.ic_help) // Replace with better icon if available
+        notificationsView.findViewById<ImageView>(R.id.settingIcon).setImageResource(R.drawable.ic_help)
     }
 
     private fun setupLogout() {
@@ -67,7 +76,6 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun logout() {
         lifecycleScope.launch {
-            val tokenManager = TokenManager(this@ProfileActivity)
             tokenManager.clearToken()
             
             val intent = Intent(this@ProfileActivity, MainActivity::class.java)

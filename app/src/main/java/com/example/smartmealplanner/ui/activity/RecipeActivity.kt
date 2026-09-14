@@ -100,7 +100,7 @@ class RecipeActivity : AppCompatActivity() {
 
         // Directions
         val tvDirectionsContent = findViewById<TextView>(R.id.tvDirectionsContent)
-        tvDirectionsContent.text = recipe.directions.mapIndexed { index, step ->
+        tvDirectionsContent.text = recipe.steps.mapIndexed { index, step ->
             "${index + 1}. $step"
         }.joinToString("\n\n")
     }

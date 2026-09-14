@@ -71,6 +71,12 @@
             android:label="Weekly Meal Plan"
             android:theme="@style/Theme.SmartMealPlanner"/>
 
+        <activity
+            android:name=".ui.activity.SavedMealPlanActivity"
+            android:exported="false"
+            android:label="My Weekly Plan"
+            android:theme="@style/Theme.SmartMealPlanner"/>
+
     </application>
 
 </manifest>

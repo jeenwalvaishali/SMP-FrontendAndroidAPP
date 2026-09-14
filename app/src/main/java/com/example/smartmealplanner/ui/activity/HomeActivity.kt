@@ -140,6 +140,10 @@ class HomeActivity : AppCompatActivity(), OnItemClickListener {
         popupMenu.menuInflater.inflate(R.menu.menu_home, popupMenu.menu)
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.itemId) {
+                R.id.menu_meal_plan -> {
+                    startActivity(Intent(this, SavedMealPlanActivity::class.java))
+                    true
+                }
                 R.id.menu_logout -> {
                     logout()
                     true

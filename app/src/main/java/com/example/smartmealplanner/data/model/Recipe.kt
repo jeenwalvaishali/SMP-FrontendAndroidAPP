@@ -8,8 +8,14 @@ data class Recipe(
     val title: String,
     val description: String,
     val ingredients: List<String>,
-    @SerializedName("steps") val directions: List<String>,
+    val steps: List<String>,
     val cuisine: String,
+    val dietType: String? = null,
+    val mealTypes: List<String>? = null,
+    val calories: Int? = 0,
+    val protein: Int? = 0,
+    val carbohydrates: Int? = 0,
+    val fat: Int? = 0,
     val prepTime: Int,
     val imageUrl: String,
     val avgRating: Double = 0.0,
@@ -19,4 +25,3 @@ data class Recipe(
     val cookingTime: String
         get() = "$prepTime mins"
 }
-

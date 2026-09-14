@@ -21,6 +21,7 @@ class LoginViewModel(
 
             result.onSuccess {
                 tokenManager.saveToken(it.token)
+                tokenManager.saveUserDetails(it.user.name, it.user.email)
             }
 
             loginState.postValue(result)
