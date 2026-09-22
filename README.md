@@ -1,77 +1,288 @@
-# SmartMealPlanner
+# 🍽️ SmartMealPlanner — Android App
 
-SmartMealPlanner is a modern Android application designed to help users discover, search, and save their favorite recipes. The app utilizes a clean MVVM architecture and leverages powerful Jetpack libraries to provide a seamless user experience.
+**SmartMealPlanner** is a modern Android meal planning and recipe application built with **Kotlin, MVVM, Jetpack libraries, and REST APIs**.
 
----
+The application allows users to discover and search recipes, save favorites, create personalized weekly meal plans, replace meals, and interact with an **AI-powered meal assistant** for recipe and meal-related questions.
 
-## 🌟 Key Highlight: Smart Meal AI Assistant 🤖
+This Android application is part of the SmartMealPlanner full-stack platform:
 
-**Elevate your cooking experience with our intelligent AI companion.**
-
-*   **Instant Recipe Queries:** Ask for ingredients or cooking steps on the fly.
-*   **Personalized Suggestions:** Get meal ideas based on what you have or what you crave.
-*   **Nutritional Advice:** Understand your meals better with real-time AI insights.
-*   **Interactive Experience:** A smooth, modern chat interface for natural conversations about food.
-
----
-
-## Features
-
-* **Recipe Discovery:** Browse **Recipes of the Week** and personalized recommendations directly on the home dashboard.
-* **Smart Meal AI Assistant:** Interact with an AI-powered assistant for personalized meal suggestions, recipe queries, and nutritional advice in real-time.
-* **Dynamic Categorization:** Filter recipes by categories such as Asian, Indian, Mediterranean, etc. using an interactive horizontal selector.
-* **Powerful Search:** Real-time search functionality integrated with the IME (keyboard) search action.
-* **Favorites Management:** Save preferred recipes to a dedicated favorites list for offline-style access.
-* **Personalized Weekly Meal Planning:** Generate and view custom weekly meal plans customized by diet type, daily calorie target, meals per day, cuisine preferences, and maximum cooking time.
-* **User Profiles:** Manage personal settings and secure session handling.
-* **Secure Authentication:** Token-based authentication using DataStore Preferences and OkHttp Interceptors.
+* 📱 **Android App** — Kotlin + MVVM
+* 🌐 **Web Application** — React
+* ⚙️ **Backend API** — Node.js + Express
+* 🛠️ **Admin Panel** — React
+* 🗄️ **Database** — MongoDB
+* 🤖 **AI Assistant** — Backend AI integration
 
 ---
 
-## Tech Stack
+## ✨ Key Features
 
-The project is built using modern Android development practices.
+### 🤖 AI Meal Assistant
 
-### Language
+Interact with an AI-powered conversational assistant directly from the Android application.
+
+Users can:
+
+* Ask questions about recipes and ingredients
+* Get meal ideas based on preferences
+* Ask cooking-related questions
+* Get food and meal-related guidance
+* Have an interactive conversation through a modern chat interface
+
+The Android application communicates with the backend AI service through a REST API.
+
+### 🍳 Recipe Discovery
+
+* Browse Recipes of the Week
+* View personalized recommendations
+* Explore recipes by category
+* View recipe details
+* Browse all available recipes
+
+### 🔎 Recipe Search
+
+* Search recipes by keyword
+* Real-time search support
+* IME keyboard search action
+* Scrollable recipe results
+* Search results retrieved from the backend API
+
+### ❤️ Favorites
+
+Users can save their favorite recipes and access them from a dedicated favorites section.
+
+### 📅 Personalized Weekly Meal Planner
+
+Users can generate personalized weekly meal plans based on:
+
+* Diet type
+* Daily calorie target
+* Meals per day
+* Cuisine preference
+* Maximum cooking time
+
+Example preferences:
+
+```text
+Diet: Vegetarian
+Daily Calories: 2000
+Meals Per Day: 3
+Cuisine: Indian
+Cooking Time: < 30 minutes
+```
+
+The application then displays a personalized weekly meal plan.
+
+### 🔄 Meal Replacement
+
+Users can replace meals in their generated plan when they want an alternative recipe.
+
+### 👤 User Profile
+
+* View user information
+* Manage profile-related functionality
+* Maintain authenticated sessions
+* Securely log out
+
+### 🔐 Authentication
+
+The application uses token-based authentication.
+
+Authentication tokens are stored using **Jetpack DataStore Preferences** and automatically attached to authenticated API requests using an **OkHttp Interceptor**.
+
+---
+
+# 📱 Application Screens
+
+The application includes the following major screens:
+
+* Login
+* Registration
+* Home Dashboard
+* Recipe Details
+* All Recipes
+* Favorites
+* User Profile
+* Meal Preferences
+* Weekly Meal Plan
+* Saved Meal Plan
+* AI Chat Assistant
+
+---
+
+# 🤖 AI Assistant Architecture
+
+The AI assistant follows a simple client-server architecture:
+
+```text
+┌─────────────────────────────┐
+│       Android App           │
+│                             │
+│      ChatActivity           │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│        ChatViewModel        │
+│                             │
+│ UI State / Business Logic   │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│       Retrofit / OkHttp     │
+│                             │
+│       POST /ai/chat         │
+└──────────────┬──────────────┘
+               │
+               ▼
+┌─────────────────────────────┐
+│      Node.js Backend        │
+│                             │
+│       AI Service            │
+└─────────────────────────────┘
+```
+
+This keeps the Android UI independent from the backend AI implementation.
+
+---
+
+# 🏗️ Application Architecture
+
+SmartMealPlanner follows the **MVVM (Model-View-ViewModel)** architecture pattern.
+
+```text
+┌─────────────────────────────────┐
+│              UI                 │
+│                                 │
+│ Activities / Fragments          │
+│ RecyclerViews / Adapters        │
+└───────────────┬─────────────────┘
+                │
+                ▼
+┌─────────────────────────────────┐
+│           ViewModel             │
+│                                 │
+│ UI State / Business Logic       │
+└───────────────┬─────────────────┘
+                │
+                ▼
+┌─────────────────────────────────┐
+│             Data                │
+│                                 │
+│ API / Models / TokenManager     │
+└───────────────┬─────────────────┘
+                │
+                ▼
+┌─────────────────────────────────┐
+│        Node.js Backend          │
+│                                 │
+│           REST API              │
+└───────────────┬─────────────────┘
+                │
+                ▼
+┌─────────────────────────────────┐
+│            MongoDB              │
+└─────────────────────────────────┘
+```
+
+### Architecture Responsibilities
+
+**UI Layer**
+
+Responsible for:
+
+* Rendering application screens
+* Handling user interactions
+* Displaying loading and error states
+* Observing ViewModel data
+
+**ViewModel Layer**
+
+Responsible for:
+
+* Managing UI state
+* Calling repository/API functionality
+* Handling asynchronous operations
+* Surviving configuration changes
+
+**Data Layer**
+
+Responsible for:
+
+* REST API communication
+* Authentication
+* Request/response models
+* Token management
+
+---
+
+# 🛠️ Tech Stack
+
+## Language
 
 * Kotlin
 
-### Architecture
+## Architecture
 
-* MVVM (Model-View-ViewModel)
-* Clean separation of concerns
+* MVVM
+* Separation of UI and data responsibilities
 
-### Networking
+## Android / Jetpack
 
-* Retrofit 2
-* OkHttp
-* REST API
-
-### Asynchronous Work
-
-* Kotlin Coroutines
-* Non-blocking UI operations
-
-### UI Components
-
-* RecyclerView
-* Custom Adapters
-* Material Design 3
-* Glide for optimized image loading
-
-### Jetpack Libraries
-
+* Android SDK
 * ViewModel
 * LiveData
 * DataStore Preferences
 * Navigation Component
+* Kotlin Coroutines
+
+## Networking
+
+* Retrofit 2
+* OkHttp
+* Gson
+* REST APIs
+
+## UI
+
+* XML Layouts
+* ViewBinding
+* RecyclerView
+* Material Design 3
+* Custom Adapters
+
+## Image Loading
+
+* Glide
+
+## Authentication
+
+* Token-based authentication
+* DataStore Preferences
+* OkHttp Interceptor
+
+## Backend Integration
+
+* Node.js
+* Express.js
+* REST API
+* MongoDB
+
+## Development Tools
+
+* Android Studio
+* Gradle
+* Git
+* GitHub
 
 ---
 
-## Project Structure
+# 📂 Project Structure
 
 ```text
 com.example.smartmealplanner
+│
 ├── adapter
 │   ├── CategoryAdapter
 │   ├── RecommendationAdapter
@@ -81,6 +292,7 @@ com.example.smartmealplanner
 │   └── ChatAdapter
 │
 ├── data
+│   │
 │   ├── api
 │   │   ├── RetrofitClient
 │   │   ├── ApiService
@@ -90,13 +302,22 @@ com.example.smartmealplanner
 │   │   └── AuthInterceptor
 │   │
 │   └── model
-│       ├── Recipe / Category
-│       ├── User / Auth (LoginRequest, RegisterRequest, AuthResponse)
-│       ├── Response (RecipeResponse, SearchResponse, SingleRecipeResponse)
-│       ├── MealPlan (MealPlan, MealPlanModels, MealPreferences)
-│       └── ChatModels (ChatRequest, ChatResponse, ChatMessage)
+│       ├── Recipe
+│       ├── Category
+│       ├── User
+│       ├── Auth
+│       ├── RecipeResponse
+│       ├── SearchResponse
+│       ├── SingleRecipeResponse
+│       ├── MealPlan
+│       ├── MealPlanModels
+│       ├── MealPreferences
+│       ├── ChatRequest
+│       ├── ChatResponse
+│       └── ChatMessage
 │
 ├── ui
+│   │
 │   ├── activity
 │   │   ├── MainActivity
 │   │   ├── HomeActivity
@@ -130,186 +351,331 @@ com.example.smartmealplanner
 
 ---
 
-# Getting Started
+# 🔌 Backend Integration
 
-## Prerequisites
-
-Before running the project, make sure you have the following installed:
-
-* Android Studio Ladybug or newer
-* JDK 17 or higher
-* Android SDK Level 34 (UpsideDownCake)
-
----
-
-## Installation
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/smartmealplanner.git
-```
-
-### 2. Open the project
-
-Open the project in Android Studio.
-
-### 3. Configure the Backend URL
-
-Ensure the `BASE_URL` in `RetrofitClient.kt` points to your backend API.
-
-```kotlin
-const val BASE_URL = "https://your-backend-url.com/"
-```
-
-### 4. Sync Gradle
-
-Sync the project with Gradle Files.
-
-### 5. Run the Application
-
-Run the application on an emulator or physical Android device.
-
----
-
-# Usage
-
-## Home Dashboard
-
-Upon login, users can view:
-
-* Recipes of the Week
-* Personalized recommendations
-* Recipe categories
-* Top recipe picks
-
----
-
-## Smart Meal AI Assistant
-
-Access the AI Assistant from the home screen menu to ask questions about recipes, nutritional information, or get custom meal ideas. The assistant provides real-time responses with a smooth, interactive chat interface.
-
----
-
-## Search & All Recipes
-
-Use the search bar to find recipes by keyword, or browse all available recipes in a clear, scrollable layout.
-The search functionality is integrated with the IME keyboard search action.
-
----
-
-## Recipe Details
-
-Click on any recipe card to view:
-
-* Recipe information
-* Ingredients
-* Cooking instructions
-* Other recipe details
-
----
-
-## Weekly Meal Planner
-
-Configure and save preferences such as diet type (e.g., Vegetarian), daily calorie goal, meals per day, cuisine, and maximum cooking time to view and track your personalized weekly meal plans.
-
----
-
-## Favorites
-
-Save preferred recipes to a dedicated favorites list for quick access.
-
----
-
-## User Profile
-
-Manage personal settings and secure session handling.
-
----
-
-## Logout
-
-Access the popup menu from the `menuCard` on the home screen to securely log out.
-
----
-
-# Architecture
-
-SmartMealPlanner follows the **MVVM (Model-View-ViewModel)** architecture pattern.
-
-```text
-┌──────────────────────────────┐
-│             UI               │
-│ Activities / Fragments       │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│          ViewModel           │
-│       Business Logic         │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│             Data             │
-│ API / Models / TokenManager  │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│        Node.js Backend       │
-│           REST API           │
-└──────────────────────────────┘
-```
-
----
-
-# Networking
-
-The Android application communicates with the Node.js backend through REST APIs using Retrofit 2 and OkHttp.
+The Android application communicates with the SmartMealPlanner Node.js backend using REST APIs.
 
 ```text
 Android Application
         │
-        │ Retrofit / OkHttp
-        ▼
-     REST API
+        │ Retrofit
         │
         ▼
-  Node.js Backend
+     OkHttp
         │
         ▼
-    Database
+   REST API
+        │
+        ▼
+ Node.js / Express
+        │
+        ├──────────────► MongoDB
+        │
+        └──────────────► AI Service
 ```
+
+### Main API Areas
+
+The Android application communicates with backend APIs for:
+
+* Authentication
+* User information
+* Recipe retrieval
+* Recipe search
+* Favorites
+* Meal planning
+* Meal replacement
+* AI chat
 
 ---
 
-# Authentication
+# 🔐 Authentication Flow
 
 SmartMealPlanner uses token-based authentication.
 
-Authentication tokens are stored locally using **Jetpack DataStore Preferences**.
+```text
+┌───────────────┐
+│     Login     │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────────┐
+│   Node.js API     │
+└────────┬──────────┘
+         │
+         ▼
+┌───────────────────┐
+│ Authentication    │
+│      Token        │
+└────────┬──────────┘
+         │
+         ▼
+┌───────────────────┐
+│ DataStore         │
+│ Preferences       │
+└────────┬──────────┘
+         │
+         ▼
+┌───────────────────┐
+│ OkHttp Interceptor│
+└────────┬──────────┘
+         │
+         ▼
+ Authenticated API
+    Requests
+```
+
+The token is retrieved when authenticated requests are made and attached to the request through the OkHttp interceptor.
+
+---
+
+# 📅 Meal Planning Flow
 
 ```text
-User Login
-    │
-    ▼
-Node.js Backend
-    │
-    ▼
-Authentication Token
-    │
-    ▼
-DataStore Preferences
-    │
-    ▼
-Authenticated API Requests
+User Preferences
+       │
+       ▼
+┌──────────────────────┐
+│ Meal Preferences     │
+│                      │
+│ Diet                 │
+│ Calories             │
+│ Meals / Day          │
+│ Cuisine              │
+│ Cooking Time         │
+└──────────┬───────────┘
+           │
+           ▼
+    Backend API
+           │
+           ▼
+  Meal Plan Generation
+           │
+           ▼
+┌──────────────────────┐
+│ Weekly Meal Plan     │
+│                      │
+│ Breakfast            │
+│ Lunch                │
+│ Dinner               │
+└──────────┬───────────┘
+           │
+           ▼
+     Meal Replacement
 ```
----
-
-A modern recipe discovery and meal-planning Android application built with **Kotlin, MVVM, and Jetpack libraries**.
 
 ---
+
+
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+Make sure the following are installed:
+
+* Android Studio
+* JDK 17 or higher
+* Android SDK 36
+* Git
+* An Android emulator or physical Android device
+
+### Minimum Android Version
+
+```text
+Minimum SDK: 24
+Compile SDK: 36
+Target SDK: 36
+```
+
+---
+
+## 1. Clone the Repository
+
+```bash
+git clone https://github.com/jeenwalvaishali/SMP-FrontendAndroidAPP.git
+```
+
+Navigate into the project:
+
+```bash
+cd SMP-FrontendAndroidAPP
+```
+
+---
+
+## 2. Open the Project
+
+Open the project in **Android Studio**.
+
+Allow Android Studio to:
+
+* Download required Gradle dependencies
+* Sync the project
+* Build the application
+
+---
+
+## 3. Configure the Backend URL
+
+The Android application reads the backend URL from `local.properties`.
+
+Add:
+
+```properties
+BASE_URL=https://your-backend-url.com/
+```
+
+The backend URL should point to the deployed SmartMealPlanner API.
+
+For local development, use the appropriate URL for your emulator/device configuration.
+
+> Do not commit private configuration or secrets to GitHub.
+
+---
+
+## 4. Sync Gradle
+
+In Android Studio:
+
+```text
+File → Sync Project with Gradle Files
+```
+
+Wait for the Gradle synchronization to complete.
+
+---
+
+## 5. Run the Application
+
+Connect an Android device or start an Android emulator.
+
+Then run:
+
+```text
+Run → Run 'app'
+```
+
+---
+
+# 🧭 Application Flow
+
+A typical user flow is:
+
+```text
+Launch App
+    │
+    ▼
+Login / Register
+    │
+    ▼
+Home Dashboard
+    │
+    ├──────────────► Discover Recipes
+    │
+    ├──────────────► Search Recipes
+    │
+    ├──────────────► View Favorites
+    │
+    ├──────────────► AI Assistant
+    │
+    └──────────────► Meal Planner
+                         │
+                         ▼
+                  Set Preferences
+                         │
+                         ▼
+                  Generate Plan
+                         │
+                         ▼
+                  Replace Meals
+```
+
+---
+
+# 🧪 Error & State Handling
+
+The application handles common API and UI states including:
+
+* Loading states
+* API responses
+* Empty results
+* Authentication state
+* Network/API errors
+* Invalid user input
+* Session/token handling
+
+Kotlin Coroutines are used for asynchronous network operations so that network requests do not block the main UI thread.
+
+---
+
+# 🔒 Security Considerations
+
+The application follows several security practices:
+
+* Authentication tokens are stored using DataStore Preferences
+* Authentication headers are added through OkHttp
+* API communication is separated from UI components
+* Backend authentication and authorization are handled by the server
+* Private configuration is kept outside the source code through `local.properties`
+
+> Production deployments should additionally use HTTPS, secure secret management, token expiration/refresh strategies, and appropriate backend authorization controls.
+
+---
+
+# 🌐 Related Repositories
+
+### Android Application
+
+📱 SmartMealPlanner Android App
+
+https://github.com/jeenwalvaishali/SMP-FrontendAndroidAPP
+
+### Backend API
+
+⚙️ SmartMealPlanner Backend
+
+https://github.com/jeenwalvaishali/SmartMealPlanner-backend
+
+### Admin Panel
+
+🛠️ SmartMealPlanner Admin Panel
+
+https://github.com/jeenwalvaishali/SMP-Admin-Panel
+
+---
+
+# 💡 Engineering Highlights
+
+This project demonstrates practical experience with:
+
+* Android application development using Kotlin
+* MVVM architecture
+* REST API integration
+* Retrofit and OkHttp
+* Kotlin Coroutines
+* DataStore-based token management
+* Authentication flows
+* RecyclerView and custom adapters
+* Search and filtering
+* Personalized meal-plan generation
+* AI API integration
+* Meal replacement workflows
+* Backend-driven application architecture
+* Error and loading state management
+* Git/GitHub-based development
+
+
+---
+
+# 👩‍💻 Author
+
+**Vaishali Jeenwal**
+
+Software Engineer | Android | React | Node.js
+
+Built as a full-stack software engineering project to explore modern application development, API integration, personalized meal planning, and AI-powered user experiences.
+
 
 ## 📱 Screenshots
 
