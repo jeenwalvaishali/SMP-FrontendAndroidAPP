@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Meal Planner"
+        android:text="@string/meal_planner_title"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/text_primary"
@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Diet"
+        android:text="@string/diet_label"
         android:textColor="@color/text_primary"
         android:layout_marginBottom="8dp"/>
 
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Daily Calories"
+        android:text="@string/daily_calories_label"
         android:textColor="@color/text_primary"
         android:layout_marginBottom="8dp"/>
 
@@ -47,13 +47,14 @@
         android:background="@drawable/menu_bg"
         android:padding="12dp"
         android:inputType="number"
-        android:hint="e.g. 2000"
+        android:hint="@string/calories_hint"
+        android:autofillHints="none"
         android:textColor="@color/text_primary"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Meals Per Day"
+        android:text="@string/meals_per_day_label"
         android:textColor="@color/text_primary"
         android:layout_marginBottom="8dp"/>
 
@@ -68,7 +69,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cuisine"
+        android:text="@string/cuisine_label"
         android:textColor="@color/text_primary"
         android:layout_marginBottom="8dp"/>
 
@@ -83,7 +84,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cooking Time"
+        android:text="@string/cooking_time_label"
         android:textColor="@color/text_primary"
         android:layout_marginBottom="8dp"/>
 
@@ -99,7 +100,7 @@
         android:id="@+id/generateButton"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:text="Generate Meal Plan"
+        android:text="@string/generate_meal_plan"
         android:backgroundTint="@color/primaryColor"
         android:textColor="@android:color/white"
         app:cornerRadius="8dp"/>

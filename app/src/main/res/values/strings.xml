@@ -19,4 +19,21 @@
     <string name="watch_video">Watch Video</string>
     <string name="add_to_fav">Add to Favourites</string>
     <string name="show_less">Show less</string>
+
+    <!-- Chat strings -->
+    <string name="smart_meal_ai">🤖 SmartMeal AI</string>
+    <string name="ask_something">Ask something...</string>
+    <string name="send">Send</string>
+    <string name="ai_greeting">Hi! How can I help with your meal plan?</string>
+    <string name="ai_thinking">AI is thinking...</string>
+
+    <!-- Meal Preference strings -->
+    <string name="meal_planner_title">Meal Planner</string>
+    <string name="diet_label">Diet</string>
+    <string name="daily_calories_label">Daily Calories</string>
+    <string name="calories_hint">e.g. 2000</string>
+    <string name="meals_per_day_label">Meals Per Day</string>
+    <string name="cuisine_label">Cuisine</string>
+    <string name="cooking_time_label">Cooking Time</string>
+    <string name="generate_meal_plan">Generate Meal Plan</string>
 </resources>

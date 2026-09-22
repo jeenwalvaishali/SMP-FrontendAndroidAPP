@@ -21,7 +21,7 @@ object RetrofitClient {
     private fun getClient(tokenManager: TokenManager? = null): OkHttpClient {
         val builder = OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(120, TimeUnit.SECONDS) // Increased to 120s for AI processing
             .writeTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(logging)
         

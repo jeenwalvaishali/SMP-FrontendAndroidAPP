@@ -1,19 +1,9 @@
 package com.example.smartmealplanner.data.api
 
-import com.example.smartmealplanner.data.model.CategoryResponse
-import com.example.smartmealplanner.data.model.RecipeResponse
-import com.example.smartmealplanner.data.model.SearchResponse
-import com.example.smartmealplanner.data.model.SingleRecipeResponse
-import com.example.smartmealplanner.data.model.MealPreferences
-import com.example.smartmealplanner.data.model.WeeklyMealPlan
+import com.example.smartmealplanner.data.model.*
 import okhttp3.ResponseBody
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.DELETE
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
     @GET("recipes")
@@ -45,4 +35,10 @@ interface ApiService {
 
     @POST("meal-plan/generate")
     suspend fun generateMealPlan(@Body preferences: MealPreferences): WeeklyMealPlan
+
+    @POST("ai/chat")
+    suspend fun sendMessage(@Body request: ChatRequest): ChatResponse
+
+    @POST("meal-plan/replace")
+    suspend fun replaceMeal(@Body request: UpdateMealPlanRequest): UpdateMealPlanResponse
 }
