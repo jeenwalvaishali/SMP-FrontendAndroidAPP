@@ -4,9 +4,21 @@ SmartMealPlanner is a modern Android application designed to help users discover
 
 ---
 
+## 🌟 Key Highlight: Smart Meal AI Assistant 🤖
+
+**Elevate your cooking experience with our intelligent AI companion.**
+
+*   **Instant Recipe Queries:** Ask for ingredients or cooking steps on the fly.
+*   **Personalized Suggestions:** Get meal ideas based on what you have or what you crave.
+*   **Nutritional Advice:** Understand your meals better with real-time AI insights.
+*   **Interactive Experience:** A smooth, modern chat interface for natural conversations about food.
+
+---
+
 ## Features
 
 * **Recipe Discovery:** Browse **Recipes of the Week** and personalized recommendations directly on the home dashboard.
+* **Smart Meal AI Assistant:** Interact with an AI-powered assistant for personalized meal suggestions, recipe queries, and nutritional advice in real-time.
 * **Dynamic Categorization:** Filter recipes by categories such as Asian, Indian, Mediterranean, etc. using an interactive horizontal selector.
 * **Powerful Search:** Real-time search functionality integrated with the IME (keyboard) search action.
 * **Favorites Management:** Save preferred recipes to a dedicated favorites list for offline-style access.
@@ -65,20 +77,24 @@ com.example.smartmealplanner
 │   ├── RecommendationAdapter
 │   ├── RecipeWeekAdapter
 │   ├── AllRecipesAdapter
-│   └── MealPlanAdapter
+│   ├── MealPlanAdapter
+│   └── ChatAdapter
 │
 ├── data
 │   ├── api
 │   │   ├── RetrofitClient
 │   │   ├── ApiService
+│   │   ├── AuthApi
+│   │   ├── MealPlanApiService
 │   │   ├── TokenManager
 │   │   └── AuthInterceptor
 │   │
 │   └── model
-│       ├── Recipe
-│       ├── User
-│       ├── Response
-│       └── MealPlanModels (MealPlanRequest, MealPlanResponse, SavedMealPlan, etc.)
+│       ├── Recipe / Category
+│       ├── User / Auth (LoginRequest, RegisterRequest, AuthResponse)
+│       ├── Response (RecipeResponse, SearchResponse, SingleRecipeResponse)
+│       ├── MealPlan (MealPlan, MealPlanModels, MealPreferences)
+│       └── ChatModels (ChatRequest, ChatResponse, ChatMessage)
 │
 ├── ui
 │   ├── activity
@@ -90,12 +106,18 @@ com.example.smartmealplanner
 │   │   ├── ProfileActivity
 │   │   ├── MealPreferencesActivity
 │   │   ├── SavedMealPlanActivity
-│   │   └── WeeklyMealPlanActivity
+│   │   ├── WeeklyMealPlanActivity
+│   │   └── ChatActivity
+│   │
+│   ├── auth
+│   │   ├── LoginFragment
+│   │   ├── RegisterFragment
+│   │   └── AuthViewModel
 │   │
 │   ├── viewmodel
 │   │   ├── HomeViewModel
-│   │   ├── HomeViewModelFactory
-│   │   ├── FavoriteViewModelFactory
+│   │   ├── ChatViewModel
+│   │   ├── ChatViewModelFactory
 │   │   └── ...
 │   │
 │   └── common
@@ -160,6 +182,12 @@ Upon login, users can view:
 * Personalized recommendations
 * Recipe categories
 * Top recipe picks
+
+---
+
+## Smart Meal AI Assistant
+
+Access the AI Assistant from the home screen menu to ask questions about recipes, nutritional information, or get custom meal ideas. The assistant provides real-time responses with a smooth, interactive chat interface.
 
 ---
 
