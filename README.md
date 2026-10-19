@@ -679,8 +679,6 @@ Built as a full-stack software engineering project to explore modern application
 
 ## 📱 Screenshots
 
-📱 Screenshots
-
 <table>
 <tr>
 <td align="center"><b>Login Screen</b><br><img src="docs/images/SMP_LoginPage.jpg" width="180"></td>
