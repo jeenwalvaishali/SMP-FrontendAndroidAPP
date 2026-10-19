@@ -711,4 +711,28 @@ Built as a full-stack software engineering project to explore modern application
 
 <img src="docs/images/SMP_MenuOptions.jpg" width="250">
 
+### Meal Plan
+
+<img src="docs/images/SMP_MealPlanPage.jpg" width="250">
+
+### My Weekly Plan
+
+<img src="docs/images/SMP_MyWeeklyPlan.jpg" width="250">
+
+### My Weekly Plan Continue
+
+<img src="docs/images/SMP_MyWeeklyPlan2.jpg" width="250">
+
+### SmartMeal AI Assistant
+
+<img src="docs/images/SMP_SmartMealAIPage.jpg" width="250">
+
+### Chat Page
+
+<img src="docs/images/SMP_ChatPage.jpgg" width="250">
+
+### Chat Response
+
+<img src="docs/images/SMP_ChatResponse.jpg" width="250">
+
 ---
