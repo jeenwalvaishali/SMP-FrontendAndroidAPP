@@ -701,10 +701,8 @@ Built as a full-stack software engineering project to explore modern application
 <td align="center"><b>SmartMeal AI Assistant</b><br><img src="docs/images/SMP_SmartMealAIPage.jpg" width="180"></td>
 </tr>
 <tr>
-<td align="center"><b>Chat Page</b><br><img src="docs/images/SMP_ChatPage.jpgg" width="180"></td>
+<td align="center"><b>Chat Page</b><br><img src="docs/images/SMP_ChatPage.jpg" width="180"></td>
 <td align="center"><b>Chat Response</b><br><img src="docs/images/SMP_ChatResponse.jpg" width="180"></td>
-<td></td>
-<td></td>
 </tr>
 </table>
 
