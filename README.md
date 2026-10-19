@@ -679,60 +679,33 @@ Built as a full-stack software engineering project to explore modern application
 
 ## 📱 Screenshots
 
-### Login Screen
+📱 Screenshots
 
-<img src="docs/images/SMP_LoginPage.jpg" width="250">
-
-### Home Screen
-
-<img src="docs/images/SMP_HomePage.jpg" width="250">
-
-### Category Home
-
-<img src="docs/images/SMP_CategoryHome.jpg" width="250">
-
-### Favorite Page
-
-<img src="docs/images/SMP_FavoritePage.jpg" width="250">
-
-### Recipe Details Page
-
-<img src="docs/images/SMP_RecipeDetailsPage.jpg" width="250">
-
-### Search Result
-
-<img src="docs/images/SMP_SearchResultPage.jpg" width="250">
-
-### Settings Page
-
-<img src="docs/images/SMP_SettingPage.jpg" width="250">
-
-### Menu Option
-
-<img src="docs/images/SMP_MenuOptions.jpg" width="250">
-
-### Meal Plan
-
-<img src="docs/images/SMP_MealPlanPage.jpg" width="250">
-
-### My Weekly Plan
-
-<img src="docs/images/SMP_MyWeeklyPlan.jpg" width="250">
-
-### My Weekly Plan Continue
-
-<img src="docs/images/SMP_MyWeeklyPlan2.jpg" width="250">
-
-### SmartMeal AI Assistant
-
-<img src="docs/images/SMP_SmartMealAIPage.jpg" width="250">
-
-### Chat Page
-
-<img src="docs/images/SMP_ChatPage.jpgg" width="250">
-
-### Chat Response
-
-<img src="docs/images/SMP_ChatResponse.jpg" width="250">
+<table>
+<tr>
+<td align="center"><b>Login Screen</b><br><img src="docs/images/SMP_LoginPage.jpg" width="180"></td>
+<td align="center"><b>Home Screen</b><br><img src="docs/images/SMP_HomePage.jpg" width="180"></td>
+<td align="center"><b>Category Home</b><br><img src="docs/images/SMP_CategoryHome.jpg" width="180"></td>
+<td align="center"><b>Favorite Page</b><br><img src="docs/images/SMP_FavoritePage.jpg" width="180"></td>
+</tr>
+<tr>
+<td align="center"><b>Recipe Details Page</b><br><img src="docs/images/SMP_RecipeDetailsPage.jpg" width="180"></td>
+<td align="center"><b>Search Result</b><br><img src="docs/images/SMP_SearchResultPage.jpg" width="180"></td>
+<td align="center"><b>Settings Page</b><br><img src="docs/images/SMP_SettingPage.jpg" width="180"></td>
+<td align="center"><b>Menu Option</b><br><img src="docs/images/SMP_MenuOptions.jpg" width="180"></td>
+</tr>
+<tr>
+<td align="center"><b>Meal Plan</b><br><img src="docs/images/SMP_MealPlanPage.jpg" width="180"></td>
+<td align="center"><b>My Weekly Plan</b><br><img src="docs/images/SMP_MyWeeklyPlan.jpg" width="180"></td>
+<td align="center"><b>My Weekly Plan Continue</b><br><img src="docs/images/SMP_MyWeeklyPlan2.jpg" width="180"></td>
+<td align="center"><b>SmartMeal AI Assistant</b><br><img src="docs/images/SMP_SmartMealAIPage.jpg" width="180"></td>
+</tr>
+<tr>
+<td align="center"><b>Chat Page</b><br><img src="docs/images/SMP_ChatPage.jpgg" width="180"></td>
+<td align="center"><b>Chat Response</b><br><img src="docs/images/SMP_ChatResponse.jpg" width="180"></td>
+<td></td>
+<td></td>
+</tr>
+</table>
 
 ---
